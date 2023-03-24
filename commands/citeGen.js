@@ -1,6 +1,6 @@
 const { Command } = require("../deps/command.js")
 const prompt = require("prompt-sync")({ sigint: true })
-
+const chalk = require("chalk")
 new Command("citeGen", "Generate Citation", () => {
 	const author = prompt("Author Name (Last, First): ")
 	const title = prompt("Title: ")
@@ -13,18 +13,20 @@ new Command("citeGen", "Generate Citation", () => {
 	const location = prompt("Location (url or page number)[starting page]: ")
 	const location2 = prompt("End Page: ")
 	console.log(
-		`${author ? `${author}. ` : ""}${title ? `"${title}". ` : ""}${
-			container ? `${container}, ` : ""
-		}${contributor ? `${contributor}, ` : ""}${
-			version ? `${version}, ` : ""
-		}${number ? `${number}, ` : ""}${publisher ? `${publisher}, ` : ""}${
-			date ? `${date}, ` : ""
-		}${
-			location
-				? location2
-					? `pp. ${location}-${location2}. `
-					: `p. ${location}`
-				: ""
-		}`
+		chalk.green(
+			`${author ? `${author}. ` : ""}${title ? `"${title}". ` : ""}${
+				container ? `${chalk.italic(container)}, ` : ""
+			}${contributor ? `${contributor}, ` : ""}${
+				version ? `${version}, ` : ""
+			}${number ? `${number}, ` : ""}${
+				publisher ? `${publisher}, ` : ""
+			}${date ? `${date}, ` : ""}${
+				location
+					? location2
+						? `pp. ${location}-${location2}. `
+						: `p. ${location}`
+					: ""
+			}`
+		)
 	)
 })

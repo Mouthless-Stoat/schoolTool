@@ -1,5 +1,7 @@
 const { Command } = require("../deps/command.js")
 const prompt = require("prompt-sync")({ sigint: true })
+const chalk = require("chalk")
+
 new Command("gcf", "Find Greatest Common Factor", () => {
 	const num = parseInt(prompt("Enter how many number you want to find GCF: "))
 	let arr = []
@@ -20,7 +22,7 @@ new Command("gcf", "Find Greatest Common Factor", () => {
 		}
 
 		if (isCommonDivisor) {
-			console.log(`Solution: ${factor}`)
+			console.log(chalk.green(`Solution: ${factor}`))
 			break
 		}
 	}
