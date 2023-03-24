@@ -1,0 +1,23 @@
+{
+  "name": "mathtool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "string-similarity": "^4.0.4"
+  },
+  "pkg": {
+    "scripts": "deps/**/*.js",
+    "targets": [
+      "node18-win-x64"
+    ]
+  }
+}
